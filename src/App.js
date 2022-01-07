@@ -8,7 +8,7 @@ import Search from './components/Search/Search';
 
 function App() {
 
-  let [pageNumber, SetpageNumber] = useState(1);
+  let [ pageNumber, SetpageNumber] = useState(1);
   
   let [search, setSearch] = useState("");
 
@@ -57,7 +57,7 @@ function App() {
       </div>
 
       <div className="row">
-          <Pagination pageNumber={ pageNumber } SetpageNumber={ SetpageNumber }/>
+          <Pagination info={info}  pageNumber={ pageNumber } SetpageNumber={ SetpageNumber }/>
       </div>
 
     </div>
