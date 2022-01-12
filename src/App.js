@@ -1,12 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap';
+import './App.css';
 import Filters from './components/Filters/Filters';
 import Cards from './components/Cards/Cards';
 import Pagination from './components/Pagination/Pagination';
 import Search from './components/Search/Search';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Navbar from './components/Navbar/Navbar';
+import Episodes from './components/Pages/Episodes';
+import Locations from './components/Pages/Locations';
 
-function App() {
+
+function App (){
+  return (
+    <Router>
+      <div className='App'>
+          <Navbar />
+      </div>
+
+      <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="/episodes" element={<Episodes />}/>
+        <Route path="/locations" element={<Locations />}/>
+      </Routes>
+    </Router>
+  )
+}
+
+const Home = () =>{
 
   let [ pageNumber, setPageNumber] = useState(1);
   
@@ -32,12 +54,10 @@ function App() {
 
 
   return (
+
+  <div className='App'>
+    
     <div className="container my-4">
-      <div className="row">
-        <div className="col text-center my-3">
-          <h1>Rick and Morty API</h1>
-        </div>
-      </div>
 
       <div className="row">
         <div className="col-12">
@@ -68,6 +88,8 @@ function App() {
       </div>
 
     </div>
+    </div>
+
   );
 }
 
