@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactPaginate from 'react-paginate'
 
-const Pagination = ({info, pageNumber, SetpageNumber}) => {
+const Pagination = ({info, pageNumber, setPageNumber}) => {
     return (
         <ReactPaginate 
             pageCount={info?.pages}
@@ -16,7 +16,7 @@ const Pagination = ({info, pageNumber, SetpageNumber}) => {
             previousLinkClassName="page-link"
             nextLinkClassName="page-link"
             onPageChange={(data) => (
-                SetpageNumber(data.selected + 1)
+                setPageNumber(data.selected + 1)
                 
             )}
             forcePage={pageNumber === 1 ? 0 : pageNumber - 1}

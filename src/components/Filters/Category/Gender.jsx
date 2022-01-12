@@ -1,9 +1,9 @@
 import React from 'react'
 import FilterBTN from '../FilterBTN';
 
-const Gender = ({SetpageNumber, setStatus}) => {
+const Gender = ({setPageNumber, setGender}) => {
 
-    let genderArr = ['Male', 'Female', 'Genderless', "Unknown"];
+    let gender = ['Male', 'Female', 'Genderless', "Unknown"];
     return (
         <div className="accordion-item">
             <h2 className="accordion-header" id="headingThree">
@@ -13,8 +13,14 @@ const Gender = ({SetpageNumber, setStatus}) => {
             </h2>
             <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
             <div className="accordion-body">
-                {genderArr.map((items,index) => (
-                    <FilterBTN SetpageNumber={SetpageNumber} setStatus={setStatus}  key={index} items={items} name="gender"/>
+                {gender.map((items,index) => (
+                    <FilterBTN 
+                    setPageNumber={setPageNumber} 
+                    task={setGender} 
+                    index={index}
+                    key={index} 
+                    items={items} 
+                    name="gender"/>
                 ))}
                 
             </div>

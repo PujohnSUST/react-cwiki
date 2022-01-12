@@ -2,9 +2,9 @@ import React from 'react'
 import FilterBTN from '../FilterBTN';
 
 
-const Status = ({SetpageNumber, setStatus}) => {
+const Status = ({setPageNumber, setStatus}) => {
 
-    let statusArray =["Alive", "Dead", "Unknown"];
+    let status =["Alive", "Dead", "Unknown"];
 
 
     return (
@@ -16,8 +16,14 @@ const Status = ({SetpageNumber, setStatus}) => {
         </h2>
         <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
             <div className="accordion-body d-flex flex-wrap justify-content-center gap-3 mb-2">
-                {statusArray.map((items,index) => (
-                     <FilterBTN SetpageNumber={SetpageNumber} setStatus={setStatus}  key={index} items={items} name="status"/>
+                {status.map((items, index) => (
+                    <FilterBTN 
+                    setPageNumber={setPageNumber} 
+                    task={setStatus}  
+                    index={index} 
+                    key={index}
+                    items={items} 
+                    name="status"/>
                 ))}
                 
             </div>

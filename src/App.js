@@ -8,17 +8,18 @@ import Search from './components/Search/Search';
 
 function App() {
 
-  let [ pageNumber, SetpageNumber] = useState(1);
+  let [ pageNumber, setPageNumber] = useState(1);
   
   let [search, setSearch] = useState("");
   let [status, setStatus] = useState("");
+  let [species, setSpecies] = useState("");
+  let [gender, setGender] = useState("");
 
   let [fetchedData, updateFetchedData] = useState([]);
   let {info, results} = fetchedData;
 
-  console.log(results);
 
-  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}`;
+  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&species=${species}&gender=${gender}`;
 
   useEffect (() => {
 
@@ -34,7 +35,7 @@ function App() {
     <div className="container my-4">
       <div className="row">
         <div className="col text-center my-3">
-           <h1>Rick and Morty API</h1>
+          <h1>Rick and Morty API</h1>
         </div>
       </div>
 
@@ -47,7 +48,12 @@ function App() {
 
       <div className="row">
         <div className="col-3">
-            <Filters setStatus={setStatus} SetpageNumber={SetpageNumber}/>
+            <Filters 
+              setSpecies={setSpecies}
+              setGender={setGender}
+              setStatus={setStatus} 
+              setPageNumber={setPageNumber}
+            />
         </div>
 
         <div className="col-9">
@@ -58,7 +64,7 @@ function App() {
       </div>
 
       <div className="row">
-          <Pagination info={info}  pageNumber={ pageNumber } SetpageNumber={ SetpageNumber }/>
+          <Pagination info={info}  pageNumber={ pageNumber } setPageNumber={ setPageNumber }/>
       </div>
 
     </div>
