@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Cards from '../Cards/Cards';
 import InputGroupLo from '../Filters/Category/InputGroupLo';
 
-const Locations = () => {
+const Locations = ({ page }) => {
 
     let [id, setID] = useState(1);
     let [info, setInfo] = useState([]);
@@ -43,7 +43,7 @@ const Locations = () => {
                 </div>
                 <div className="col-9">
                     <div className="row mt-4">
-                        <Cards results={results}/>
+                        <Cards page="/location/" results={results}/>
                     </div>
                 </div>
             </div>

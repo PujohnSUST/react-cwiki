@@ -10,6 +10,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Episodes from './components/Pages/Episodes';
 import Locations from './components/Pages/Locations';
+import CardsDetails from './components/Cards/CardsDetails';
 
 
 function App (){
@@ -21,8 +22,15 @@ function App (){
 
       <Routes>
         <Route path="/" element={<Home />}/>
+        <Route path="/:id" element={<CardsDetails />}/>
+
+
+
         <Route path="/episodes" element={<Episodes />}/>
+        <Route path="/episodes/:id" element={<CardsDetails />}/>
+
         <Route path="/locations" element={<Locations />}/>
+        <Route path="/locations/:id" element={<CardsDetails />}/>
       </Routes>
     </Router>
   )
@@ -61,13 +69,13 @@ const Home = () =>{
 
       <div className="row">
         <div className="col-12">
-            <Search setSearch={setSearch}/>
+            <Search setSearch={setSearch} setPageNumber={setPageNumber}/>
         </div>
       </div>
 
 
       <div className="row">
-        <div className="col-3">
+        <div className="col-xs-12 col-sm-3">
             <Filters 
               setSpecies={setSpecies}
               setGender={setGender}
@@ -76,9 +84,9 @@ const Home = () =>{
             />
         </div>
 
-        <div className="col-9">
+        <div className="col-xs-12 col-sm-9">
             <div className="row">
-            <Cards results={results} />
+            <Cards page="/" results={results} />
             </div>
         </div>        
       </div>

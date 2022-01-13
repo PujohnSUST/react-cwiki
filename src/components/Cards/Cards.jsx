@@ -1,6 +1,7 @@
-import React from 'react'
+import React from 'react';
+import {Link} from 'react-router-dom';
 
-const Cards = ({ results}) => {
+const Cards = ({ results, page}) => {
 
     let display;
     
@@ -8,13 +9,16 @@ const Cards = ({ results}) => {
         display = results.map((card) => {
             let {id, image, name, location, status} = card;
             return(
-                <div key={id} className="col-4">
-                     <div className="mb-4 position-relative border border-secondary">
+                <Link 
+                to={`${page}${id}`}
+                key={id}
+                className="col-xs-12 col-sm-4 text-decoration-none">
+                    <div className="mb-4 position-relative border border-secondary">
                         <img src={image} className="img-fluid mb-2 width-100" alt="Avater" />
                         <div className="content py-2 px-2">
-                            <h5 className="fs-4 fw-bold mb-3">{name}</h5>
-                            <div className="fs-6">Last Location</div>
-                            <div className="fs-5">{location.name}</div>
+                            <h5 className="fs-4 fw-bold mb-3 text-success">{name}</h5>
+                            <div className="fs-6 text-secondary">Last Location</div>
+                            <div className="fs-5 text-danger">{location.name}</div>
                             {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
                         </div>
 
@@ -46,7 +50,7 @@ const Cards = ({ results}) => {
                         
                      </div>
                      
-                </div>
+                </Link>
             );
          
         });
